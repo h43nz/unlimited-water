@@ -41,3 +41,16 @@ Sobald der Container auf der Dockge-VM läuft (z.B. auf Port 8080):
     *   **Upstream Port**: `8090` (wie in der docker-compose.yml definiert).
 
 Damit leitet Pangolin Anfragen an deine Dockge-VM weiter, wo der Nginx-Container läuft.
+
+## Verification (Sovereign Design)
+Das "Sovereign Industrial" Design (Bitcoin-aligned) wurde lokal erfolgreich getestet:
+
+````carousel
+![Hero](file:///Users/haenz/.gemini/antigravity/brain/1f3f794f-82e4-4896-8d07-05fe2e6577f0/sovereign_hero_1764938902242.png)
+<!-- slide -->
+![Low Time Preference](file:///Users/haenz/.gemini/antigravity/brain/1f3f794f-82e4-4896-8d07-05fe2e6577f0/sovereign_low_time_1764938929223.png)
+<!-- slide -->
+![Proof of Work](file:///Users/haenz/.gemini/antigravity/brain/1f3f794f-82e4-4896-8d07-05fe2e6577f0/sovereign_pow_1764938938269.png)
+<!-- slide -->
+![Handshake / Contact](file:///Users/haenz/.gemini/antigravity/brain/1f3f794f-82e4-4896-8d07-05fe2e6577f0/sovereign_handshake_1764938940742.png)
+````

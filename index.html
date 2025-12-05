@@ -4,213 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unlimited Water | Professionelle Brunnenbohrung</title>
-    <meta name="description"
-        content="Professionelle Brunnenbohrung für Ihren Garten. Pauschalpreis 2499€. Tiefenbohrung, sauberes Wasser, unabhängig.">
+    <title>Unlimited Water | Sovereign Solutions</title>
+    <meta name="description" content="Dezentrale Wasserversorgung. Unabhängigkeit für Generationen.">
+
+    <!-- Sovereign Fonts: Space Grotesk (Headers) & JetBrains Mono (Code/Tech) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;600;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Specific page styles embedded for quick iteration, can be moved later */
-        .hero {
-            height: 90vh;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(rgba(10, 35, 66, 0.8), rgba(10, 35, 66, 0.6)), url('assets/hero-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Water wave animation effect at bottom of hero */
-        .wave-container {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            transform: rotate(180deg);
-        }
-
-        .wave-container svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 100px;
-        }
-
-        .wave-container .shape-fill {
-            fill: var(--bg-light);
-        }
-
-        /* Nav */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--secondary);
-        }
-
-        .nav-links a {
-            margin-left: 2rem;
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-
-        /* Offer Card */
-        .offer-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-glm);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--secondary);
-        }
-
-        .price-tag {
-            font-size: 4rem;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
-            margin: 1.5rem 0;
-        }
-
-        .price-sub {
-            font-size: 1.25rem;
-            color: #6b7280;
-        }
-
-        .feature-list {
-            list-style: none;
-            text-align: left;
-            margin: 2rem 0;
-        }
-
-        .feature-list li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #f0f0f0;
-            display: flex;
-            align-items: center;
-        }
-
-        .feature-list li::before {
-            content: "✓";
-            color: var(--secondary);
-            font-weight: bold;
-            margin-right: 1rem;
-        }
-
-        /* Methodology */
-        .method-card {
-            background: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            height: 100%;
-            transition: transform 0.3s;
-        }
-
-        .method-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .method-img {
-            height: 200px;
-            background-color: #e5e7eb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #9ca3af;
-            font-size: 3rem;
-        }
-
-        .method-content {
-            padding: 2rem;
-        }
-
-        /* Benefits Grid */
-        .benefit-item {
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
-        }
-
-        .benefit-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--bg-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #d1d5db;
-            border-radius: 0.5rem;
-            font-family: inherit;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(0, 168, 232, 0.1);
-        }
-    </style>
 </head>
 
 <body>
@@ -218,245 +22,121 @@
     <nav>
         <div class="container nav-content">
             <a href="#" class="logo">
-                <img src="assets/logo_mit_name_transparent.png" alt="Unlimited Water" style="max-height: 60px;">
+                <img src="assets/logo_mit_name_transparent.png" alt="Unlimited Water" style="max-height: 45px;">
             </a>
             <div class="nav-links">
-                <a href="#angebot">Angebot</a>
-                <a href="#vorteile">Vorteile</a>
-                <a href="#technik">Technik</a>
-                <a href="#kontakt" class="btn btn-primary" style="padding: 0.5rem 1.5rem;">Anfragen</a>
+                <a href="#manifest">Manifest</a>
+                <a href="#pow">Proof of Work</a>
+                <a href="#signal" class="text-signal">/// Kontakt</a>
             </div>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="container fade-up">
-            <h1 style="max-width: 800px; margin-bottom: 1.5rem;">Ein eigener Tiefbrunnen<br>für Ihren Garten.</h1>
-            <p style="font-size: 1.25rem; color: rgba(255,255,255,0.9); margin-bottom: 2.5rem; max-width: 600px;">
-                Professionell, zuverlässig und nachhaltig. Machen Sie sich unabhängig von der städtischen
-                Wasserversorgung.
+        <div class="container">
+            <span class="mono">/// DEZENTRALE INFRASTRUKTUR</span>
+            <h1>Wahre<br>Unabhängigkeit.</h1>
+            <p style="margin-bottom: 3rem;">
+                Trennen Sie sich von zentralen Strukturen. Eigene Wasserversorgung ist der erste Schritt zur
+                Souveränität. Stabil. Zensurresistent. Dauerhaft.
             </p>
-            <div style="display: flex; gap: 1rem;">
-                <a href="#angebot" class="btn btn-primary">Zum Angebot</a>
-                <a href="#kontakt" class="btn"
-                    style="background: rgba(255,255,255,0.1); color: white; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.3);">Kostenlose
-                    Beratung</a>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="#signal" class="btn btn-primary">Netzwerk aufbauen</a>
+                <a href="#manifest" class="btn">Mehr erfahren</a>
             </div>
-        </div>
-
-        <div class="wave-container">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                preserveAspectRatio="none">
-                <path
-                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                    class="shape-fill"></path>
-            </svg>
         </div>
     </header>
 
-    <section id="angebot">
+    <section id="manifest">
         <div class="container">
-            <div class="section-title fade-up">
-                <h2>Unser Pauschalangebot</h2>
-                <p>Transparent und fair. Keine versteckten Kosten für die Standardbohrung.</p>
-            </div>
-
             <div class="grid-2" style="align-items: center;">
-                <div class="fade-up">
-                    <h3 style="color: var(--secondary); margin-bottom: 1rem;">Alles inklusive Paket</h3>
-                    <p style="margin-bottom: 2rem;">
-                        Unser Komplettpaket bietet Ihnen den perfekten Einstieg in die eigene Wasserversorgung.
-                        Wir nutzen modernste Technik, um Ihren Garten minimal zu belasten.
-                    </p>
-                    <div class="offer-card">
-                        <span
-                            style="background: var(--primary); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600;">Bestpreis</span>
-                        <div class="price-tag">2.499€</div>
-                        <div class="price-sub">inkl. 19% MwSt.</div>
-
-                        <ul class="feature-list">
-                            <li>Tiefenbohrung bis 15 Meter</li>
-                            <li>Inklusive Brunnenrohr DN 100mm</li>
-                            <li>2 Meter Feinsandfilter nach DIN</li>
-                            <li>Brunnenkopf DN 100</li>
-                            <li>An- und Abfahrt (regional)</li>
-                        </ul>
-                        <p style="font-size: 0.9rem; color: #6b7280; margin-top: 1rem;">Jeder weitere Meter: 120,00€
-                            inkl. MwSt.</p>
-                    </div>
+                <div>
+                    <span class="mono">01 // LOW TIME PREFERENCE</span>
+                    <h2>Gebaute Ewigkeit.</h2>
+                    <p>Wir denken nicht in Quartalen, sondern in Generationen. Ein Tiefbrunnen ist ein Investment in die
+                        Substanz.</p>
+                    <p>Wir verwenden ausschließlich Materialien, die den härtesten Anforderungen standhalten. Keine
+                        Kompromisse. Pure Funktionalität.</p>
                 </div>
-                <!-- Image placeholder, will be replaced with actual image later if needed -->
-                <div class="fade-up stagger-2"
-                    style="height: 100%; min-height: 400px; background: #e0f2fe; border-radius: 20px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
-                    <div style="text-align: center; color: var(--primary);">
-                        <!-- Using generated image later -->
-                        <div style="font-size: 4rem; opacity: 0.5;">💧</div>
-                        <h4>Frisches Wasser<br>jederzeit verfügbar</h4>
-                    </div>
+                <div class="block-card">
+                    <span class="mono"
+                        style="font-size: 3rem; color: #fff; display: block; margin-bottom: 0.5rem;">21M+</span>
+                    <span class="mono" style="color: var(--text-muted);">LITER KAPAZITÄT / JAHR</span>
+                    <hr style="border: 0; border-top: 1px solid var(--border); margin: 2rem 0;">
+                    <p style="font-size: 0.9rem;">
+                        > Unabhängig von Preisschwankungen<br>
+                        > Konstante Qualität<br>
+                        > Krisensichere Versorgung
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="vorteile" style="background: white;">
+    <section id="pow">
         <div class="container">
-            <div class="section-title fade-up">
-                <h2>Warum ein eigener Tiefbrunnen?</h2>
-                <p>Die smarte Alternative zu teurem Leitungswasser.</p>
-            </div>
+            <span class="mono">02 // PROOF OF WORK</span>
+            <h2 style="margin-bottom: 3rem;">Technische Exzellenz.</h2>
 
             <div class="grid-3">
-                <div class="glass-panel p-4 fade-up stagger-1"
-                    style="padding: 2rem; border: none; background: var(--bg-light);">
-                    <div class="benefit-icon">💰</div>
-                    <h3>Kosten sparen</h3>
-                    <p>Reduzieren Sie Ihre Wasserkosten drastisch. Die Investition amortisiert sich oft schon nach
-                        wenigen Jahren durch die Einsparung von Trinkwassergebühren.</p>
+                <div class="block-card">
+                    <span class="mono">[HASH: DRILL]</span>
+                    <h3 style="margin-top: 1rem;">Kompakte Power</h3>
+                    <p>Unser Raupenbohrgerät kommt überall hin. Maximale Leistung bei minimalem Footprint. Keine
+                        Flurschäden.</p>
                 </div>
-                <div class="glass-panel p-4 fade-up stagger-2"
-                    style="padding: 2rem; border: none; background: var(--bg-light);">
-                    <div class="benefit-icon">🌊</div>
-                    <h3>Unabhängigkeit</h3>
-                    <p>Machen Sie sich frei von steigenden Wasserpreisen und Versorgungsengpässen. Ihr eigener Brunnen
-                        liefert zuverlässig Wasser, wann immer Sie es brauchen.</p>
+                <div class="block-card">
+                    <span class="mono">[HASH: ROTARY]</span>
+                    <h3 style="margin-top: 1rem;">Spülbohrverfahren</h3>
+                    <p>Moderne Rotary-Technik für tiefe, stabile Bohrlöcher. Effizienter Materialabtrag und saubere
+                        Ergebnisse.</p>
                 </div>
-                <div class="glass-panel p-4 fade-up stagger-3"
-                    style="padding: 2rem; border: none; background: var(--bg-light);">
-                    <div class="benefit-icon">🌱</div>
-                    <h3>Nachhaltigkeit</h3>
-                    <p>Nutzen Sie natürliches Grundwasser für Ihren Garten statt aufbereitetes Trinkwasser zu
-                        verschwenden. Eine ökologisch sinnvolle Entscheidung.</p>
+                <div class="block-card">
+                    <span class="mono">[HASH: FILTER]</span>
+                    <h3 style="margin-top: 1rem;">Deep Layer Access</h3>
+                    <p>Wir erschließen Tiefenwasser jenseits der 15 Meter. Gefiltert durch massive Erdschichten. Rein
+                        und sicher.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="technik" class="bg-gradient">
+    <section id="signal">
         <div class="container">
-            <div class="section-title fade-up" style="color: white !important;">
-                <h2 style="color: white;">Unsere Technik</h2>
-                <p style="color: rgba(255,255,255,0.8);">Schonend für Ihren Garten, kraftvoll in der Leistung.</p>
-            </div>
-
             <div class="grid-2">
-                <div class="method-card fade-up">
-                    <div class="method-img">🚜</div>
-                    <div class="method-content">
-                        <h3>Kompaktes Raupenbohrgerät</h3>
-                        <p>Wir nutzen ein spezielles, kompaktes Bohrgerät auf Raupenfahrwerk.
-                            <strong>Vorteil:</strong> Wir kommen durch fast jedes Gartentor (ca. 1m Breite) und
-                            hinterlassen kaum Flurschäden.
-                            Perfekt für angelegte Gärten.
-                        </p>
-                    </div>
-                </div>
-                <div class="method-card fade-up stagger-1">
-                    <div class="method-img">🔄</div>
-                    <div class="method-content">
-                        <h3>Rotary-Spülbohrverfahren</h3>
-                        <p>Sauber und effizient. Das Bohrgut wird direkt ausgespült. Dieses Verfahren ermöglicht,
-                            zuverlässig und sicher Tiefen von 15m und mehr zu erreichen, ohne dass das Bohrloch
-                            zusammenfällt.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="vergleich" style="background: white;">
-        <div class="container">
-            <div class="section-title fade-up">
-                <h2>Tiefbrunnen vs. Rammbrunnen</h2>
-                <p>Warum sich die Investition in Qualität lohnt.</p>
-            </div>
-
-            <div class="grid-2">
-                <div class="fade-up">
-                    <ul class="feature-list">
-                        <li><strong>Höhere Fördermenge:</strong> Ideal für Bewässerungsanlagen.</li>
-                        <li><strong>Konstante Qualität:</strong> Wasser aus tieferen Schichten ist sauberer.</li>
-                        <li><strong>Lange Lebensdauer:</strong> Hält Jahrzehnte statt nur Jahre.</li>
-                        <li><strong>Versorgungssicherheit:</strong> Unabhängig von trockenen Sommern.</li>
-                    </ul>
-                </div>
-                <div class="fade-up bg-light p-4"
-                    style="background: var(--bg-light); padding: 2rem; border-radius: 1rem;">
-                    <h4>Einsatzgebiet</h4>
-                    <p>Wir sind für Sie unterwegs in:</p>
-                    <ul style="margin-left: 1.5rem; margin-top: 1rem; color: #4b5563;">
-                        <li>Ganz Deutschland</li>
-                        <li>Dänemark</li>
-                        <li>Polen</li>
-                        <li>Niederlande</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="kontakt">
-        <div class="container">
-            <div class="glass-panel" style="padding: 3rem; max-width: 800px; margin: 0 auto; background: white;">
-                <div class="text-center mb-4">
-                    <h2>Kostenloses Angebot anfordern</h2>
-                    <p>Haben Sie und Ihre Nachbarn Interesse? Wir bieten <strong>Nachbarschaftsrabatte</strong> an!</p>
+                <div>
+                    <span class="mono">03 // HANDSHAKE</span>
+                    <h2>Opt Out Now.<br>Starten Sie Ihr Projekt.</h2>
+                    <p>Wir arbeiten in Deutschland und angrenzenden Nachbarstaaten (DK, PL, NL).</p>
+                    <p class="mono" style="margin-top: 2rem;">
+                        > STATUS: BEREIT<br>
+                        > MAIL: info@unlimited-water.com
+                    </p>
                 </div>
 
-                <form class="contact-form">
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" class="form-control" placeholder="Ihr Name">
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" class="form-control" placeholder="ihre@email.de">
-                        </div>
-                    </div>
+                <form class="block-card contact-form">
+                    <label class="mono" style="font-size: 0.8rem;">ID / NAME</label>
+                    <input type="text" class="form-input">
 
-                    <div class="form-group">
-                        <label>Anschrift (Wohnort & Straße)</label>
-                        <input type="text" class="form-control" placeholder="Musterstraße 1, 12345 Musterstadt">
-                    </div>
+                    <label class="mono" style="font-size: 0.8rem;">SIGNAL / EMAIL</label>
+                    <input type="email" class="form-input">
 
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label>Grundwasserstand (falls bekannt)</label>
-                            <input type="text" class="form-control" placeholder="z.B. 4 Meter">
-                        </div>
-                        <div class="form-group">
-                            <label>Nachbarbrunnen vorhanden?</label>
-                            <select class="form-control">
-                                <option>Bitte wählen</option>
-                                <option>Ja</option>
-                                <option>Nein</option>
-                                <option>Unbekannt</option>
-                            </select>
-                        </div>
-                    </div>
+                    <label class="mono" style="font-size: 0.8rem;">COORDINATES / ADRESSE</label>
+                    <input type="text" class="form-input">
 
-                    <div class="form-group">
-                        <label>Nachricht / Bodenbeschaffenheit</label>
-                        <textarea class="form-control" rows="4"
-                            placeholder="Beschreiben Sie den Boden (Lehm, Sand...) oder stellen Sie weitere Fragen."></textarea>
-                    </div>
+                    <label class="mono" style="font-size: 0.8rem;">DATA / NACHRICHT</label>
+                    <textarea class="form-input" rows="4"></textarea>
 
-                    <div class="text-center" style="margin-top: 1rem;">
-                        <button type="submit" class="btn btn-primary" style="width: 100%; max-width: 300px;">Anfrage
-                            absenden</button>
-                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Transaktion senden</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer style="background: var(--primary); color: white; padding: 3rem 0; margin-top: 4rem;">
-        <div class="container text-center">
-            <h3>Unlimited Water</h3>
-            <p style="color: rgba(255,255,255,0.6);">Ihr Partner für professionelle Brunnenbohrungen.</p>
-            <div style="margin-top: 2rem; font-size: 0.9rem; color: rgba(255,255,255,0.4);">
-                &copy; 2025 Unlimited Water. Alle Rechte vorbehalten.
-            </div>
+    <footer style="padding: 2rem 0; text-align: center;">
+        <div class="container">
+            <span class="mono" style="font-size: 0.7rem; color: var(--border);">VIRES IN NUMERIS // COPYRIGHT 2025
+                UNLIMITED WATER</span>
         </div>
     </footer>
 
