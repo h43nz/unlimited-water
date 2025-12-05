@@ -1,0 +1,14 @@
+services:
+  unlimited-water:
+    build: .
+    container_name: unlimited-water-web
+    restart: always
+    ports:
+      - "8080:80"
+    # User-defined networks if needed for Pangolin/Proxy
+    # networks:
+    #   - proxy_network 
+
+# networks:
+#   proxy_network:
+#     external: true
