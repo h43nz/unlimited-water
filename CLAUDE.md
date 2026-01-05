@@ -1,146 +1,85 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Anweisungen für Claude Code bei der Arbeit mit diesem Repository.
 
-## Project Overview
+## Projekt-Übersicht
 
-Unlimited Water is a static marketing website for a professional well-drilling and water supply business. The site uses an "Industrial Tech" design aesthetic with a dark theme, monospace fonts (JetBrains Mono), and orange (#F7931A) accents. Bitcoin references have been made subtle - the design aesthetic remains but explicit crypto terminology has been removed. The project is in German and targets customers in Germany and neighboring states (DK, PL, NL).
+Unlimited Water ist eine statische Marketing-Website für einen professionellen Brunnenbau- und Wasserversorgungsbetrieb. Die Seite ist in Deutsch und richtet sich an Kunden in Deutschland und Nachbarstaaten (DK, PL, NL).
 
-## Architecture
+## Tech Stack
 
-**Tech Stack:**
-- Pure static HTML/CSS/JavaScript (no build system or framework)
-- Nginx Alpine container for serving
-- Docker Compose for deployment
-- Deployed via Dockge (Docker stack manager) on a VM
-- Proxied through Pangolin for domain routing
+- **HTML + Tailwind CSS (CDN)** - Alles in einer einzigen `index.html`
+- **Kein Build-Prozess** - Direkt hostbar
+- **Nginx Alpine Container** für Deployment
+- **Docker Compose** für einfaches Hosting
 
-**File Structure:**
-- `index.html` - Single-page application with sections: hero, manifest, methodik (technical), vorteile (benefits), contact
-- `css/style.css` - Custom CSS with design system defined in CSS variables
-- `js/main.js` - Vanilla JavaScript for smooth scrolling, navbar effects, form handling
-- `assets/` - Logo files (transparent PNGs preferred: `logo_mit_name_transparent.png`, `logo_transparent.png`)
-- `kleinanzeigen/` - Marketing materials and screenshots (not part of web deployment)
-- `Dockerfile` - Nginx Alpine container configuration
-- `docker-compose.yml` - Deployment configuration for Dockge
+## Dateistruktur
 
-## Design System
-
-**Color Palette (defined in `:root`):**
-- Primary: `#051e3e` (Deep Navy)
-- Secondary: `#64748b` (Steel Grey)
-- Signal: `#F7931A` (Bitcoin Orange) - used for CTAs and highlights
-- Background Dark: `#0b1120`
-- Background Card: `#0f172a`
-- Border: `#1e293b`
-
-**Typography:**
-- Headers: Space Grotesk (geometric, bold, uppercase for h1)
-- Technical/Code elements: JetBrains Mono (monospace)
-- `.mono` class for technical labels and accent text
-
-**Design Principles:**
-- Industrial tech aesthetic (subtle technical references like "SYSTEM:", "METHODIK")
-- Professional B2B presentation with trust signals
-- Conversion-optimized with clear CTAs and benefits
-- Mobile responsive with clamp() for fluid typography
-- SEO-optimized meta tags and content structure
-
-## Development Commands
-
-**Local Development:**
-```bash
-# Serve locally (requires Python or any HTTP server)
-python3 -m http.server 8090
-# Then visit http://localhost:8090
+```
+unlimited-water/
+├── index.html          # Komplette Website (HTML + Tailwind + JS inline)
+├── assets/
+│   ├── logo_mit_name_transparent.png
+│   └── logo_transparent.png
+├── Dockerfile          # Nginx Alpine
+├── docker-compose.yml  # Port 8090
+└── CLAUDE.md
 ```
 
-**Docker Build & Run:**
+## Design-System
+
+**Farbpalette:**
+- Primary: `water-600` (#0284c7) - Wasserblau für CTAs und Akzente
+- Background: Weiß und `slate-50` für Sections
+- Text: `slate-800` (Haupttext), `slate-600` (Subtext)
+- Dark: `slate-900` für Footer
+
+**Typografie:**
+- Font: Inter (via Google Fonts)
+- Clean, modern, professionell
+
+**Tailwind-Konfiguration:** Inline im `<script>` Tag mit Custom Colors (`water`, `earth`)
+
+## Sections
+
+1. **Navigation** - Fixed, mit Mobile-Menu
+2. **Hero** - Headline, Subtext, CTAs
+3. **Stats Bar** - Kennzahlen (15+ Jahre, 500+ Projekte, 4 Länder)
+4. **Über uns** - Firmenphilosophie, 21M+ Liter Kapazität
+5. **Leistungen** - 3 Karten (Bohrgerät, Spülbohrverfahren, Tiefenwasser)
+6. **Vorteile** - 6 nummerierte Vorteile
+7. **Kontakt** - Info + Formular
+8. **Footer** - Links, Kontakt, Rechtliches
+
+## Lokale Entwicklung
+
 ```bash
-# Build and run with Docker Compose
+# Einfacher HTTP-Server
+python3 -m http.server 8090
+# oder
+npx serve -p 8090
+```
+
+## Docker Deployment
+
+```bash
+# Build und Start
 docker-compose up --build
 
-# Access at http://localhost:8090
+# Läuft auf http://localhost:8090
 ```
 
-**Docker Direct:**
-```bash
-docker build -t unlimited-water .
-docker run -p 8090:80 unlimited-water
-```
+## Anpassungen
 
-## Deployment
+**Farben ändern:** Tailwind-Config im `<script>` Tag der index.html
 
-The site deploys to a Dockge VM and is proxied through Pangolin:
+**Inhalte ändern:** Direkt in der index.html
 
-1. **Via Git (Recommended):** Push to GitHub repo `h43nz/unlimited-water`, then deploy in Dockge using the Git URL
-2. **Via SCP:** Copy files to `/opt/stacks/unlimited-water` on Dockge VM
-3. **Pangolin Proxy:** Points domain to Dockge VM IP on port 8090
+**Formular-Backend:** Aktuell nur Alert - für echte Funktion FormSpree/EmailJS einbinden
 
-**Port Configuration:**
-- Container exposes port 80 internally
-- Docker Compose maps to port 8090 externally
-- Pangolin upstream points to port 8090
+## Kontaktdaten (Platzhalter)
 
-**Update Workflow in Dockge:**
-1. Click "Update" (pulls latest from Git)
-2. Stop stack
-3. Delete stack (only removes container, repo stays)
-4. Click "Deploy" (rebuilds with new files)
+- Telefon: `+49 (0) 123 456 789 00`
+- E-Mail: `info@unlimited-water.com`
 
-## Content Guidelines
-
-**Language & Tone:**
-- All content in German
-- Professional B2B tone with technical credibility
-- Subtle tech references (SYSTEM labels, monospace styling) without explicit crypto terminology
-- Emphasizes: independence, long-term value, quality, transparency, trust
-
-**Sections:**
-1. **Hero** - Main value prop: independent water supply, crisis-proof infrastructure
-2. **Manifest (#manifest)** - "LANGFRISTIG GEDACHT" - generational thinking, quality focus
-3. **Methodik (#methodik)** - Technical capabilities (drilling equipment, rotary method, deep water access)
-4. **Vorteile (#vorteile)** - 6 key benefits with trust signals (experience, service, quality, cost transparency, speed, sustainability)
-5. **Contact (#signal)** - Enhanced contact section with phone number, business hours, improved form with placeholders and privacy notice
-
-**Marketing & SEO Guidelines:**
-- Keep Bitcoin aesthetic subtle (orange color, industrial design, technical labels)
-- Use professional service terminology, not crypto slang
-- SEO meta description includes: "Tiefbrunnen", "Deutschland", country codes, "Bohrtechnik"
-- Trust signals: years of experience, certifications (DIN), transparency, testimonials
-- CTAs emphasize value: "Kostenlose Beratung anfragen" not generic "Submit"
-
-## JavaScript Behavior
-
-`main.js` implements:
-- Smooth scroll for anchor links (works with updated navigation: #manifest, #methodik, #vorteile, #signal)
-- Intersection Observer for `.fade-up` elements (available but not currently used in HTML)
-- Navbar shrink effect on scroll (padding reduces from 1.5rem to 0.5rem)
-- Form submission preventDefault with German alert message (no backend integration yet)
-
-**Form Integration TODO:** Replace alert in `js/main.js` with backend (FormSpree, EmailJS, or custom endpoint)
-
-## Common Modifications
-
-**Changing Colors:**
-Edit CSS variables in `css/style.css:1-14`
-
-**Adding Sections:**
-Follow the pattern: section with `id`, container div, mono label, h2 heading, content grid
-
-**Form Integration:**
-Replace alert in `js/main.js:53` with actual backend submission (e.g., FormSpree, EmailJS)
-
-**Mobile Responsiveness:**
-Media query at `768px` - includes navigation font-size reduction, benefit spacing, footer stacking, reduced section padding
-
-**New CSS Components:**
-- `.benefit-list` and `.benefit-item` - Benefits section with checkmark icons
-- `.benefit-icon` - Circular orange checkmarks
-- `.footer-content` and `.footer-section` - 3-column footer layout
-- Form placeholder styling with opacity changes on focus
-
-**Key Files to Update Together:**
-- When changing navigation: update both `index.html` nav-links AND section `id` attributes
-- When adding sections: add CSS in `style.css`, update navigation, add scroll handling in `main.js`
-- Phone number placeholder: Currently `+49 (0) 123 456 789 00` - update in contact section when real number available
+Diese müssen noch durch echte Daten ersetzt werden.
