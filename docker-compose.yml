@@ -1,6 +1,6 @@
 services:
   nginx:
-    build: .
+    image: ghcr.io/h43nz/unlimited-water:latest
     container_name: unlimited-water
     restart: unless-stopped
     ports:
