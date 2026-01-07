@@ -1,17 +1,18 @@
 # CLAUDE.md
 
-Anweisungen für Claude Code bei der Arbeit mit diesem Repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Projekt-Übersicht
 
-Unlimited Water ist eine statische Marketing-Website für einen professionellen Brunnenbau- und Wasserversorgungsbetrieb. Die Seite ist in Deutsch und richtet sich an Kunden in Deutschland und Nachbarstaaten (DK, PL, NL).
+Unlimited Water ist eine statische Marketing-Website für professionellen Brunnenbau und Tiefbohrungen. Die Seite ist in Deutsch und richtet sich an Kunden in Deutschland und Nachbarstaaten (DK, PL, NL).
+
+**Live URL:** https://uw.21b.me
 
 ## Tech Stack
 
-- **HTML + Tailwind CSS (CDN)** - Alles in einer einzigen `index.html`
-- **Kein Build-Prozess** - Direkt hostbar
-- **Nginx Alpine Container** für Deployment
-- **Docker Compose** für einfaches Hosting
+- **HTML + Tailwind CSS (CDN)** - Single-File Architektur in `index.html`
+- **GitHub Container Registry** - Automatisches Image-Building via GitHub Actions
+- **Deployment:** Dockge (LXC auf Proxmox) + Pangolin Reverse Proxy
 
 ## Dateistruktur
 
@@ -51,35 +52,52 @@ unlimited-water/
 7. **Kontakt** - Info + Formular
 8. **Footer** - Links, Kontakt, Rechtliches
 
+## Deployment Workflow
+
+**Automatischer CI/CD Pipeline via GitHub Actions:**
+
+```
+git push → GitHub Actions → Container Registry → Dockge (manueller Pull)
+```
+
+1. **Lokal ändern** und `git push` zu `main` Branch
+2. **GitHub Actions** baut automatisch Docker Image (`.github/workflows/docker-build.yml`)
+3. **Image wird gepusht** zu `ghcr.io/h43nz/unlimited-water:latest`
+4. **In Dockge:** Container manuell neu starten um neuestes Image zu pullen
+5. **Live auf** https://uw.21b.me
+
+**Wichtig:** Änderungen an `index.html` werden erst nach Container-Neustart sichtbar.
+
 ## Lokale Entwicklung
 
 ```bash
-# Einfacher HTTP-Server
+# Einfacher HTTP-Server für Live-Preview
 python3 -m http.server 8090
-# oder
-npx serve -p 8090
+
+# Dann http://localhost:8090 im Browser öffnen
 ```
 
-## Docker Deployment
+**Keine Build-Steps nötig** - alle Änderungen sind sofort sichtbar.
 
-```bash
-# Build und Start
-docker-compose up --build
+## Content-Richtlinien
 
-# Läuft auf http://localhost:8090
-```
+**Sprache:** Deutsch, professioneller B2B-Ton
 
-## Anpassungen
+**Angebot:**
+- Festpreis: 2.499 € inkl. MwSt. (bis 15m Tiefe)
+- Aufpreis: 120 €/Meter über 15m
+- Inklusive: Tiefenbohrung, Brunnenrohr DN 100mm, 2m Feinsandfilter (DIN), Brunnenkopf DN 100
+- Einsatzgebiet: Deutschland, Dänemark, Polen, Niederlande
 
-**Farben ändern:** Tailwind-Config im `<script>` Tag der index.html
+**Offene TODOs:**
+- Kontaktformular-Backend einrichten (Formspree/Web3Forms)
+- Echte Kontaktdaten eintragen (aktuell Platzhalter)
+- Impressum und Datenschutz-Seiten erstellen
 
-**Inhalte ändern:** Direkt in der index.html
+## Tailwind Customization
 
-**Formular-Backend:** Aktuell nur Alert - für echte Funktion FormSpree/EmailJS einbinden
+Custom Colors in `<script>` Tag:
+- `water-*` (50-950): Blautöne für CTAs und Akzente
+- `earth-*` (50-900): Warme Erdtöne (aktuell ungenutzt)
 
-## Kontaktdaten (Platzhalter)
-
-- Telefon: `+49 (0) 123 456 789 00`
-- E-Mail: `info@unlimited-water.com`
-
-Diese müssen noch durch echte Daten ersetzt werden.
+Font: Inter (Google Fonts)
