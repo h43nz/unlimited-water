@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300">
+  <defs>
+    <style>
+      /* Exakte Farbdefinitionen */
+      .dark-blue { fill: #3d5a6b; }
+      .light-blue { fill: #0284c7; }
+    </style>
+  </defs>
+
+  <path class="dark-blue" d="
+    /* Start am Griff oben links */
+    M70,25 C60,25 60,15 70,15 L130,15 C140,15 140,25 130,25 
+    /* Übergang zum Hals */
+    L110,25 L110,50 
+    /* Bogen des Hahns */
+    C145,50 155,70 155,100 L155,115 L130,115 L130,100 
+    C130,85 125,75 110,75 L90,75 
+    /* Beginn der komplexen Bohrer-Spirale (Linke Seite nach unten) */
+    L90,120 Q80,125 75,135 L75,145 L90,155 
+    L90,165 Q80,170 75,180 L75,190 L90,200 
+    L90,210 Q80,215 75,225 L75,235 L90,245 
+    /* Spitze des Bohrers */
+    L100,285 L110,245 
+    /* Bohrer-Spirale (Rechte Seite nach oben) */
+    L110,235 L130,225 Q135,215 130,205 L110,195 
+    L110,185 L130,175 Q135,165 130,155 L110,145 
+    L110,135 L130,125 Q135,115 130,105 
+    /* Abschluss am Hals und zurück zum Griff */
+    L110,75 L90,75 L90,25 Z
+  "/>
+
+  <path class="light-blue" d="M142,130 Q158,160 158,170 A16,16 0 1,1 126,170 Q126,160 142,130 Z"/>
+
+  <g class="light-blue">
+    <path d="M30,195 Q55,210 78,200 L78,220 Q55,230 30,215 Z"/>
+    <path d="M30,230 Q55,245 78,235 L78,255 Q55,265 30,250 Z"/>
+    <path d="M130,200 Q155,190 180,200 L180,220 Q155,210 130,210 Z"/>
+    <path d="M130,235 Q155,225 180,235 L180,255 Q155,245 130,245 Z"/>
+  </g>
+</svg>
