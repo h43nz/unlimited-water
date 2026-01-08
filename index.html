@@ -80,17 +80,23 @@
         }
 
         /* Hamburger menu animation */
+        #mobile-menu-btn svg {
+            transition: transform 0.3s ease;
+        }
         #mobile-menu-btn svg path {
             transition: all 0.3s ease;
+            transform-box: fill-box;
+            transform-origin: 50% 50%;
         }
         #mobile-menu-btn.open .line-1 {
-            transform: rotate(45deg) translate(5px, 5px);
+            transform: translateY(6px) rotate(45deg);
         }
         #mobile-menu-btn.open .line-2 {
             opacity: 0;
+            transform: scale(0);
         }
         #mobile-menu-btn.open .line-3 {
-            transform: rotate(-45deg) translate(7px, -6px);
+            transform: translateY(-6px) rotate(-45deg);
         }
 
         /* Success modal */
@@ -147,9 +153,9 @@
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-slate-100 z-50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3 group">
-                <img src="assets/logo_transparent.png" alt="Unlimited Water Logo" class="h-10 w-10 transition-transform group-hover:scale-105">
-                <span class="hidden min-[420px]:block text-xl font-bold text-slate-900 tracking-tight">
+            <a href="#" class="flex items-center gap-2 sm:gap-3 group">
+                <img src="assets/logo_transparent.png" alt="Unlimited Water Logo" class="h-8 w-8 sm:h-10 sm:w-10 transition-transform group-hover:scale-105">
+                <span class="text-base sm:text-xl font-bold text-slate-900 tracking-tight">
                     UNLIMITED<span class="text-water-600"> WATER</span>
                 </span>
             </a>
@@ -837,10 +843,15 @@
         // Sticky CTA for mobile
         const stickyCta = document.getElementById('sticky-cta');
         const hero = document.querySelector('header');
+        const footer = document.querySelector('footer');
 
         window.addEventListener('scroll', () => {
             const heroBottom = hero.offsetTop + hero.offsetHeight;
-            if (window.scrollY > heroBottom) {
+            const footerTop = footer.offsetTop;
+            const scrollPosition = window.scrollY + window.innerHeight;
+
+            // Show after hero, hide before hero or when footer is visible
+            if (window.scrollY > heroBottom && scrollPosition < footerTop + 100) {
                 stickyCta.classList.remove('translate-y-full');
             } else {
                 stickyCta.classList.add('translate-y-full');
