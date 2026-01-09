@@ -81,25 +81,30 @@ unlimited-water/
 ## Page Sections
 
 **Hauptseite (index.html):**
-1. **Navigation** - Fixed Header mit animiertem Mobile Menu (ARIA-konform)
-2. **Hero** - Headline + Preis-Box mit "Festpreis-Garantie" Badge
-3. **Stats Bar** - Social Proof (15+ Jahre, 500+ Brunnen, 4 Länder, 21M+ Liter)
-4. **Über uns** - Firmenphilosophie
-5. **Leistungen** - 3 Feature-Cards
-6. **Vorteile** - 6 nummerierte Vorteile
-7. **Kontakt** - Formular mit Loading-State & Success-Modal
-8. **Footer** - Links, Language Switcher (DE/EN/PL)
+1. **Navigation** - Fixed Header mit animiertem Mobile Menu (ARIA-konform), FAQ-Link
+2. **Hero** - Headline "Tiefbrunnen" + Preis-Box (2.499€ bis 15m, bis 50m möglich)
+3. **USP Features** - 3 Icon-Cards: International tätig, Kompaktes Bohrgerät (1,1m), DIN-gerecht
+4. **Einsatzgebiet-Banner** - 4 Länder + USP "1,1m breit"
+5. **Über uns** - Firmenphilosophie
+6. **Leistungen** - 3 Feature-Cards (Tiefenbohrung bis 50m, Brunnenausbau, Brunnenfilter DIN 4924)
+7. **Vorteile** - 6 Benefit-Cards (Trockenheitssicher, Fördermenge, Wasserqualität, Kosten, Unabhängigkeit, Lebensdauer)
+8. **Ablauf** - 4-Schritte-Prozess (Anfrage → Beratung → Bohrung → Fertig)
+9. **FAQ** - 10 ausklappbare Fragen mit detaillierten Antworten (Accordion-Pattern)
+10. **Kontakt** - Formular mit ausklappbaren optionalen Services (5 Checkboxen)
+11. **Footer** - Links, Language Switcher (DE/EN/PL)
 
 **Rechtliche Seiten:**
-- impressum.html - Vollständige Firmendaten (Unlimited Water sp. z o.o., Gdańsk)
-- datenschutz.html - Ehrliche Minimal-Datenschutzerklärung (nur technische Logs)
+- impressum.html - Vollständige Firmendaten, dezenter "Zurück"-Link (Icon only mobile)
+- datenschutz.html - Minimal-Datenschutzerklärung (nur technische Logs, keine Cookies/Tracking)
 
 **UX-Features:**
 - Skip-to-Content Link (Accessibility)
 - Sticky Mobile CTA Button (erscheint beim Scrollen)
 - Form Success Modal mit Animation
+- FAQ Accordion mit Smooth-Toggle (JavaScript)
+- Ausklappbare Service-Checkboxen im Formular (Progressive Disclosure)
 - ARIA Labels & Keyboard Navigation
-- Trust Signals (Stats, Badge, Social Proof)
+- Responsive Design (Mobile-First)
 
 ## Deployment Workflow
 
@@ -134,13 +139,27 @@ python3 -m http.server 8090
 
 ## Content-Richtlinien
 
-**Sprache:** Deutsch, professioneller B2B-Ton
+**Sprache:** Deutsch, professioneller B2B-Ton (technisch präzise, aber für Laien verständlich)
 
 **Angebot:**
 - Festpreis: 2.499 € inkl. MwSt. (bis 15m Tiefe)
-- Aufpreis: 120 €/Meter über 15m
-- Inklusive: Tiefenbohrung, Brunnenrohr DN 100mm, 2m Feinsandfilter (DIN), Brunnenkopf DN 100
+- Aufpreis: 120 €/Meter über 15m (maximal bis 50m Tiefe)
+- Inklusive: Tiefenbohrung, Brunnenrohr DN 100mm, Brunnenfilter DIN 4924 (2m geschlitzt 0,5mm), Brunnenkopf DN 100
 - Einsatzgebiet: Deutschland, Dänemark, Polen, Niederlande
+
+**Optionale Services:**
+- Pumpeninstallation: ab 800€
+- Hauswasserwerk: ab 1.400€
+- Anzeige-Service (Untere Wasserbehörde): 200€
+- Bauwasser-Service (IBC gefüllt mitbringen): 500€
+- Entsorgung Bohrschlamm & Aushub: Preis nach Aufwand
+
+**Technische Spezifikationen:**
+- Bohrverfahren: Spülbohrverfahren (Rotationsbohren)
+- Bauwasser: ca. 1.000 Liter (IBC-Container direkt an Bohrstelle)
+- Bohrschlamm: ca. 1 m³ (verbleibt auf Grundstück)
+- Bohrgerät: 1,1m breit, 2,4m hoch (70m Schlauch für Wasseranschluss)
+- Standards: DIN 4924, DVGW-geprüfte Materialien
 
 ## Firmendaten
 
@@ -171,3 +190,41 @@ E-Mail: info@unlimited-water.eu
 - Tailwind Config ist inline in jeder HTML-Datei
 - Änderungen müssen in allen Sprachversionen repliziert werden
 - Keine separate `tailwind.config.js` Datei vorhanden
+
+## JavaScript Patterns
+
+**FAQ Accordion (toggleFaq):**
+- Accordion-Pattern: Nur eine FAQ-Antwort gleichzeitig geöffnet
+- SVG-Icon rotiert 180° beim Öffnen
+- ARIA-Attribute (aria-expanded, aria-controls)
+- 10 FAQ-Items mit IDs faq-1 bis faq-10
+
+**Optional Services Toggle (toggleOptionalServices):**
+- Progressive Disclosure im Kontaktformular
+- SVG-Icon rotiert 90° beim Öffnen
+- Reduziert Form Friction (Checkbox-Sektion ausklappbar)
+
+**Mobile Menu Toggle:**
+- Hamburger-Icon Animation
+- ARIA-konform (aria-expanded, aria-controls)
+- Keine CTA-Button im ausgeklappten Zustand
+
+**Sticky Mobile CTA:**
+- Erscheint beim Scrollen nach unten
+- Verschwindet beim Klick
+- Z-Index: 40
+
+## Marketing & UX Prinzipien
+
+**Wichtig:**
+- **KEINE erfundenen Zahlen/Stats verwenden** (rechtliche Risiken: Abmahnung, Verbrauchertäuschung)
+- Fokus auf echte USPs: 1,1m Bohrgerät, DIN 4924, 4 Länder, 70m Schlauch
+- Transparenz bei Zusatzkosten (optional, aber klar kommuniziert)
+- Technische Details im FAQ-Bereich (Vertrauensbildung durch Fachwissen)
+- Progressive Disclosure: Komplexe Optionen ausklappbar (reduziert Überforderung)
+
+**Conversion-Optimierung:**
+- Problem-Lösung-Fokus statt Cost-First (Vorteile: Trockenheit → Kosten)
+- FAQ beantwortet Kundenbedenken proaktiv
+- Sticky CTA für Mobile-User
+- Dezente rechtliche Seiten (Zurück-Button nicht zu prominent)
