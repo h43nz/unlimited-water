@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Unlimited Water ist eine statische Marketing-Website für professionellen Brunnenbau und Tiefbohrungen. Die Seite ist mehrsprachig (DE/EN/PL) und richtet sich an Kunden in Deutschland und Nachbarstaaten.
 
-**Live URL:** https://uw.21b.me
+**Live URL:** https://unlimited-water.eu
 **Status:** Production-ready (DE), Übersetzungen ausstehend (EN, PL)
 
 ## Tech Stack
@@ -106,7 +106,7 @@ unlimited-water/
 **Automatischer CI/CD Pipeline:**
 
 ```
-git push main → GitHub Actions → ghcr.io/h43nz/unlimited-water:latest → Dockge → uw.21b.me
+git push main → GitHub Actions → ghcr.io/h43nz/unlimited-water:latest → Dockge → unlimited-water.eu
 ```
 
 1. **Lokal ändern** und `git push` zu `main` Branch
@@ -114,7 +114,7 @@ git push main → GitHub Actions → ghcr.io/h43nz/unlimited-water:latest → Do
 3. **Docker Image Build:** Nginx Alpine mit allen HTML/Assets
 4. **Push zu Registry:** `ghcr.io/h43nz/unlimited-water:latest`
 5. **In Dockge (CT 104):** Container manuell neu starten ("Update" Button)
-6. **Pangolin Reverse Proxy** leitet `uw.21b.me` → `192.168.178.230:8090`
+6. **Pangolin Reverse Proxy** leitet `unlimited-water.eu` → `192.168.178.230:8090`
 
 **Wichtig:**
 - Änderungen sind erst nach Container-Neustart in Dockge live
@@ -148,7 +148,7 @@ python3 -m http.server 8090
 Jana Heweliusza 11/811, PL-80-890 Gdańsk, Polen
 Geschäftsführer: Marcin Stanisław Klein
 KRS: 0001179873, EUID: PLKRS.0001179873
-E-Mail: info@unlimited-water.com
+E-Mail: info@unlimited-water.eu
 
 *sp. z o.o. = polnische GmbH (Gesellschaft mit beschränkter Haftung)*
 
